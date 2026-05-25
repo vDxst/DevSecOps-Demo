@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DevSecOps C# Demo
 
 Dieses Repository gehört zu einer Präsentation über **Secure DevOps / DevSecOps**.
@@ -114,3 +115,7 @@ Als Eingabe verwendet man:
 ```
 
 Danach wird im GitHub-Repository der Tab **Actions** geöffnet, um zu zeigen, dass der Sicherheitscheck automatisch läuft.
+=======
+# DevSecOps-Demo
+Secure DevOps Demo
+>>>>>>> 13a49e01b5c4101003327606840ee1cc3438b87b
