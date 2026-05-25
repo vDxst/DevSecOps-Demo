@@ -1,0 +1,33 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-scan:
+    name: Build and Security Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: .NET installieren
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Abhängigkeiten wiederherstellen
+        run: dotnet restore
+
+      - name: Projekt bauen
+        run: dotnet build --no-restore --configuration Release
+
+      - name: NuGet-Pakete auf bekannte Schwachstellen prüfen
+        run: dotnet list package --vulnerable --include-transitive
+
+      - name: Programm testweise ausführen
+        run: echo "1 OR 1=1" | dotnet run --configuration Release
